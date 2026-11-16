@@ -1,0 +1,9 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Solution Items/" />
+  <Project Path="TTSS1/TTSS1.vcxproj" Id="368b40e3-b925-4aed-87fa-e8edd14df16a" />
+  <Project Path="TTSS2/TTSS2.vcxproj" Id="acf5a653-0d8b-4abe-927f-2ea349b31e3b" />
+</Solution>
