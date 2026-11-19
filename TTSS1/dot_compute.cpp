@@ -46,13 +46,37 @@ double dot_sequential(const std::vector<double>& A, const std::vector<double>& B
     return sum;
 }
 
-double dot_openmp(const std::vector<double>& A, const std::vector<double>& B) {
-    double sum = 0.0;
+double dot_openmp(const std::vector<double>& A, const std::vector<double>& B)
+{
+
+    if (A.size() != B.size())
+        throw std::invalid_argument("Hai vector phai co cung so phan tu.");
+
     const int64_t N = static_cast<int64_t>(A.size());
-#pragma omp parallel for reduction(+:sum) schedule(static)
-    for (int64_t i = 0; i < N; ++i) {
-        sum += A[i] * B[i];
+
+    if (N == 0) return 0.0;
+
+    double sum = 0.0;
+
+    // So luong luong khong vuot qua so phan tu
+    const int requested_threads = (std::max)(1, omp_get_max_threads());
+
+    const int actual_threads = static_cast<int>((std::min<int64_t>)(N, requested_threads));
+
+    // Vector nho: tinh tuan tu
+    if (N < 64 || actual_threads <= 1)
+    {
+        for (int64_t i = 0; i < N; ++i)
+            sum += A[i] * B[i];
+        return sum;
     }
+
+    // Vector lon: tinh song song
+    #pragma omp parallel for reduction(+:sum) schedule(static) num_threads(actual_threads)
+
+    for (int64_t i = 0; i < N; ++i)
+        sum += A[i] * B[i];
+        
     return sum;
 }
 

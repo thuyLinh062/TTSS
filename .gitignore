@@ -1,0 +1,41 @@
+# Thư mục hệ thống & build của Visual Studio (ở mọi cấp thư mục)
+**/.vs/
+**/[Dd]ebug/
+**/[Rr]elease/
+**/x64/
+**/x86/
+**/build/
+**/out/
+
+# File cấu hình & tạm của Visual Studio
+**/*.user
+**/*.userosscache
+**/*.sln.docstates
+**/*.tlog
+**/*.lastbuildstate
+**/*.ilk
+**/*.pdb
+**/*.iobj
+**/*.ipdb
+**/*.idb
+**/*.suo
+**/*.opensdf
+**/*.sdf
+**/*.db
+
+# File thực thi & file biên dịch C/C++ (MinGW / g++ / MSVC)
+**/*.exe
+**/*.out
+**/*.o
+**/*.obj
+**/*.a
+**/*.lib
+**/*.dll
+**/*.so
+**/*.dylib
+
+# File dữ liệu nhị phân & kết quả benchmark sinh ra khi chạy
+**/*.bin
+**/*.csv
+**/*.dat
+**/*.log
